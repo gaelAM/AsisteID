@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsisteID - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/icono.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        // Función para mostrar/ocultar el menú de hamburguesa
+        function toggleMenu() {
+            const nav = document.getElementById("nav");
+            nav.classList.toggle("active");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Menú de hamburguesa -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                &#9776; <!-- Símbolo del menú de hamburguesa -->
+            </div>
+            <h1>ASISTEID</h1>
+        </div>
+        <nav id="nav">
+            <div class="close-menu" id="closeBtn" onclick="toggleMenu()">
+                <span class="title">AsisteID</span> 
+                <span class="close">✖</span>
+            </div>
+            <ul>
+                <li><a href="#welcome-section" onclick="toggleMenu()">Bienvenida</a></li>
+                <li><a href="#carousel" onclick="toggleMenu()">Galería</a></li>
+                <li><a href="#information" onclick="toggleMenu()">Información</a></li>
+                <li><a href="curp_page.html" onclick="toggleMenu()">Registros de CURP</a></li>
+                <li><a href="info.html" onclick="toggleMenu()">Localidades cercanas</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    
+
+    <main>
+        <section id="welcome-section" class="welcome-section">
+            <h2>Bienvenidos a AsisteID</h2>
+            <p>AsisteID es una herramienta para escanear tu CURP mediante un QR, gestionar tus registros y obtener información útil sobre localidades cercanas. Una aplicación pensada para tu identificación y las comunidades cercanas.</p>
+        </section>
+        
+        <section id="description" class="description">
+            <p>AsisteID es una herramienta para escanear tu CURP mediante un QR, gestionar tus registros y obtener información útil sobre localidades cercanas. Una aplicación pensada para tu identificación y las comunidades cercanas.</p>
+        </section>
+        
+        <!-- Carrusel de imágenes con 7 imágenes -->
+        <section id="carousel" class="carousel">
+            <div class="carousel-track">
+                <img src="images/comunidad1.jpg" alt="Imagen 1 de la comunidad">
+                <img src="images/comunidad2.jpg" alt="Imagen 2 de la comunidad">
+                <img src="images/comunidad3.jpg" alt="Imagen 3 de la comunidad">
+                <img src="images/comunidad4.jpg" alt="Imagen 4 de la comunidad">
+                <img src="images/escuela1.jpg" alt="Imagen 1 de la escuela">
+                <img src="images/escuela2.jpg" alt="Imagen 2 de la escuela">
+                <img src="images/escuela3.jpg" alt="Imagen 3 de la escuela">
+            </div>
+        </section>
+
+        <section id="information" class="info-section">
+            <h2>Información de la Aplicación</h2>
+            <p>Descubre todas las funciones y ventajas de AsisteID, la aplicación diseñada para facilitar la gestión de tus registros y obtener información sobre tus comunidades cercanas. Escanea tu CURP de manera rápida y sencilla utilizando códigos QR.</p>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AsisteID - Todos los derechos reservados.</p>
+    </footer>
+    <script src="menu.js"></script>
+</body>
+</html>

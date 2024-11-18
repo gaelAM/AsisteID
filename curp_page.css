@@ -1,0 +1,194 @@
+/* Estilo general */
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #e6e6fa; /* Fondo morado claro */
+    color: #333;
+    min-height: 100vh;
+}
+
+
+/* Título */
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 3em;
+    color: #800080;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra en el texto */
+    margin-top: 20px;
+}
+
+/* Estilo para el contenedor de botones */
+.buttons-container {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Botones */
+button {
+    background-color: #800080; /* Morado DIF */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #4b0082; /* Morado más oscuro al pasar el ratón */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Botón "Regresar a Inicio" */
+button.back-button {
+    width: auto;
+}
+
+/* Botón "Escanear con Cámara" */
+button.scan-button {
+    width: auto;
+}
+
+/* Botón "Elegir Archivo" */
+.label-file {
+    background-color: #800080; /* Morado DIF */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.label-file:hover {
+    background-color: #4b0082; /* Morado más oscuro al pasar el ratón */
+}
+
+/* Botón "Eliminar Seleccionados" */
+button.delete-btn {
+    width: auto;
+}
+
+/* Estilo para input de archivo */
+input[type="file"] {
+    display: none; /* Oculta el botón de archivo por defecto */
+}
+
+/* Estilos para la tabla */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;  /* Aumentado el máximo para pantallas grandes */
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #800080; /* Morado DIF */
+    text-align: center;
+}
+
+#messageContainer {
+    font-size: 16px;
+    margin-top: 10px;
+    background-color: #ffe6e6; /* Fondo de alerta suave */
+    color: #cc0000; /* Rojo para mensajes de error */
+    border-radius: 5px;
+    border: 1px solid #cc0000;
+    display: inline-block;
+}
+
+/* Ventana emergente de la cámara */
+#cameraContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#closeCamera {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cameraContainer {
+        width: 70%; /* Reduce el ancho de la ventana emergente */
+        max-width: 100%; /* Asegura que no se salga horizontalmente */
+        height: auto; /* Ajusta la altura automáticamente */
+        max-height: 90vh; /* Limita la altura máxima a 90% de la ventana */
+        padding: 10px; /* Reduce el padding */
+        top: 50%; /* Ajusta la posición vertical */
+        left: 50%; /* Ajusta la posición horizontal */
+        transform: translate(-50%, -50%); /* Centra la ventana */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #camera {
+        width: 80%; /* Asegura que la cámara se ajuste al contenedor */
+        height: auto; /* Mantiene la proporción de la cámara */
+        max-height: 80vh; /* Limita la altura máxima de la cámara */
+    }
+
+    #closeCamera {
+        padding: 8px 12px; /* Ajusta el padding del botón de cerrar */
+        font-size: 0.9em; /* Ajusta el tamaño de fuente */
+    }
+}

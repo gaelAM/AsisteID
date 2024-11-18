@@ -1,0 +1,238 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Fondo y colores */
+body {
+    background-color: #e6e6fa; /* Morado claro */
+    color: #333;
+}
+
+/* Encabezado */
+header {
+    background-color: #800080; /* Morado DIF */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hamburger-menu {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+/* Menú lateral */
+nav {
+    position: fixed; /* Ajustado para no estar fijo */
+    top: 0;
+    left: -250px; /* Oculto inicialmente */
+    width: 250px;
+    height: 100%;
+    background-color: #4b0082; /* Morado oscuro */
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+nav.active {
+    left: 0; /* Muestra el menú */
+}
+
+.close-menu {
+    color: white;
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.close-menu .title {
+    font-family: 'Merriweather', serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Sombra en el texto */
+    font-size: 1.8rem;
+    text-align: center;
+    padding-right: 30px; /* Espacio entre el título y la "X" */
+}
+
+.close-menu .close {
+    margin-left: auto;
+    font-size: 2rem;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 70px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+nav.active .close-menu {
+    display: block; /* Muestra el botón de cerrar cuando el menú está activo */
+}
+
+/* Sección */
+#main-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* Tarjetas */
+.card {
+    width: 300px; /* Incrementado de 200px */
+    height: 400px; /* Incrementado de 300px */
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-front {
+    background-color: #800080; /* Morado DIF */
+    color: white;
+}
+
+.card-front img {
+    width: 100%;
+    height: 75%; /* Ajustado para mayor área */
+    object-fit: cover;
+}
+
+.card-front h3 {
+    padding: 0.5rem;
+}
+
+.card-back {
+    background-color: #4b0082; /* Morado oscuro */
+    color: white;
+    transform: rotateY(180deg);
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-back ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-back li {
+    margin-bottom: 25%;
+    margin-top: 25%;
+}
+
+.card-back a {
+    color: #ddd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card-back a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 1.5em;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .close-menu .title {
+        font-family: 'Merriweather', serif;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Sombra en el texto */
+        font-size: 1.8rem;
+        text-align: center;
+        padding-right: 1px; /* Espacio entre el título y la "X" */
+    }
+    
+    .close-menu .close {
+        margin-left: auto;
+        font-size: 1.8rem;
+    }
+
+    nav {
+        width: 40%; /* Asegurarse que el menú ocupe todo el espacio */
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 60px 0;
+    }
+
+    .navigation button {
+        width: 90%;
+        font-size: 1.2em;
+        padding: 12px;
+    }
+}

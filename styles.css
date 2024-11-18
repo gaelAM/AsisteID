@@ -1,0 +1,315 @@
+/* Estilo general */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e6e6fa; /* Fondo morado claro */
+    min-height: 100vh;
+    color: #333;
+    text-align: center;
+}
+
+/* Encabezado */
+
+header {
+    width: 100%;
+    background-color: #800080; /* Morado DIF */
+    color: white;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar horizontalmente */
+    text-align: center;
+}
+
+.hamburger-menu {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute; /* Posición absoluta para mantenerla en la esquina */
+    left: 20px; /* Alineado al lado izquierdo */
+    top: 50%;
+    transform: translateY(-50%); /* Centrado verticalmente */
+}
+
+header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5em;
+    margin: 0;
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+
+.hamburger-menu.open {
+    transform: rotate(90deg); /* Rotación de 90 grados */
+}
+
+.hamburger-menu.open::before {
+    transform: rotate(45deg); /* Rotar la línea superior */
+}
+
+.hamburger-menu.open::after {
+    transform: rotate(-45deg); /* Rotar la línea inferior */
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu::before {
+    top: 10px;
+}
+
+.hamburger-menu::after {
+    bottom: 10px;
+}
+
+/* Barra de navegación */
+nav {
+    position: fixed;
+    top: 0;
+    left: -250px; /* El menú está fuera de la vista inicialmente */
+    width: 250px;
+    height: 100%;
+    background-color: #4b0082; /* Morado oscuro */
+    padding-top: 60px; /* Para que no se superponga al título */
+    transition: left 0.3s ease; /* Animación de deslizamiento */
+    z-index: 1000;
+}
+
+nav.active {
+    left: 0; /* Mueve el menú hacia la derecha */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 70px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Estilo del botón de cierre */
+.close-menu {
+    color: white;
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.close-menu .title {
+    font-family: 'Merriweather', serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Sombra en el texto */
+    font-size: 1.8rem;
+    text-align: center;
+    padding-right: 30px; /* Espacio entre el título y la "X" */
+}
+
+.close-menu .close {
+    margin-left: auto;
+    font-size: 2rem;
+}
+
+.hamburger-menu.hidden {
+    display: none; /* Oculta el icono de hamburguesa */
+}
+
+nav.active .close-menu {
+    display: block; /* Mostrar solo cuando el menú esté abierto */
+}
+
+/* Sección de bienvenida */
+.welcome-section {
+    padding: 50px 20px;
+    background-color: #f0e6ff; /* Fondo morado muy claro */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 70px; /* Espacio para el encabezado fijo */
+}
+
+.welcome-section h2 {
+    font-size: 2em;
+    color: #800080; /* Morado DIF */
+}
+
+.welcome-section p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    width: 90%;
+    max-width: 1000px; /* Aumentado el ancho máximo para pantallas grandes */
+    overflow: hidden;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 70px rgba(128, 0, 128, 0.8); /* Borde con brillo morado */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.carousel:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 70px rgba(128, 0, 128, 1); /* Aumenta el brillo al pasar el mouse */
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll 25s linear infinite;
+}
+
+.carousel img {
+    width: 100%;
+    flex-shrink: 0;
+    height: auto;
+    border-radius: 1px;
+}
+
+/* Animación del carrusel */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    14.28% { transform: translateX(-100%); }
+    28.57% { transform: translateX(-200%); }
+    42.86% { transform: translateX(-300%); }
+    57.14% { transform: translateX(-400%); }
+    71.43% { transform: translateX(-500%); }
+    85.71% { transform: translateX(-600%); }
+    100% { transform: translateX(0); }
+}
+
+/* Sección de información */
+.info-section {
+    padding: 50px 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.info-section h2 {
+    font-size: 2em;
+    color: #800080; /* Morado DIF */
+}
+
+.info-section p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 700px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+/* Botón de navegación */
+.navigation {
+    margin-top: 30px;
+}
+
+.navigation button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    background-color: #800080; /* Morado DIF */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navigation button:hover {
+    background-color: #4b0082;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Pie de página */
+footer {
+    background-color: #800080; /* Morado DIF */
+    color: white;
+    width: 100%;
+    padding: 1px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 600px) {
+    .welcome-section p {
+        text-align: justify;
+    }
+
+    .description p{
+        text-align: justify;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .info-section p {
+        text-align: justify;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .close-menu .title {
+        font-family: 'Merriweather', serif;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Sombra en el texto */
+        font-size: 1.5rem;
+        text-align: center;
+        padding-right: 1px; /* Espacio entre el título y la "X" */
+    }
+    
+    .close-menu .close {
+        margin-left: auto;
+        font-size: 1.5rem;
+    }
+
+    nav {
+        width: 40%; /* Asegurarse que el menú ocupe todo el espacio */
+    }
+
+    nav ul li {
+        margin: 60px 0;
+    }
+
+    .carousel {
+        width: 100%; /* Hacer el carrusel más ancho en móviles */
+    }
+
+    .navigation button {
+        width: 90%;
+        font-size: 1.2em;
+        padding: 12px;
+    }
+}
